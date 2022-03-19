@@ -1,6 +1,6 @@
 <?php
 
-namespace taylormaguire\CWManageAPI;
+namespace justostyle\CWManageAPI;
 
 use Illuminate\Support\ServiceProvider;
 use taylormaguire\CWManageAPI\CWManageAPI;
