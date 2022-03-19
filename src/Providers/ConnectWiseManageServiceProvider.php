@@ -3,7 +3,7 @@
 namespace justostyle\CWManageAPI;
 
 use Illuminate\Support\ServiceProvider;
-use taylormaguire\CWManageAPI\CWManageAPI;
+use justostyle\CWManageAPI\CWManageAPI;
 
 class ConnectWiseManageServiceProvider extends ServiceProvider
 {
