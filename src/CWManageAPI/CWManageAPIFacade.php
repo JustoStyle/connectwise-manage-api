@@ -1,5 +1,5 @@
 <?php
-namespace CWManageAPI;
+namespace justostyle\CWManageAPI;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CWManageAPI;
+namespace justostyle\CWManageAPI;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
