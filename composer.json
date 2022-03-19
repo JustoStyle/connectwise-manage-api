@@ -2,7 +2,7 @@
     "name": "taylormaguire/connectwise-manage-api",
     "description": "A package to interact between Laravel and the ConnectWise Manage API",
     "require": {
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.3 || ^7.0",
         "guzzlehttp/psr7": "^1.5"
     },
     "autoload": {
