@@ -1,5 +1,5 @@
 {
-    "name": "taylormaguire/connectwise-manage-api",
+    "name": "justostyle/connectwise-manage-api",
     "description": "A package to interact between Laravel and the ConnectWise Manage API",
     "require": {
         "guzzlehttp/guzzle": "^6.3 || ^7.0",
@@ -7,7 +7,7 @@
     },
     "autoload": {
         "psr-4": {
-            "taylormaguire\\CWManageAPI\\": "src/"
+            "justostyle\\CWManageAPI\\": "src/"
         }
     },
     "authors": [
