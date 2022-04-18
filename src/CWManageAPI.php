@@ -118,7 +118,23 @@ class CWManageAPI
             } catch (RequestException $e) {
                 $this->error($e);
             }
-        } else if ($method = "POST")
+        } else if ($method == "POST")
+        {
+            try {
+                $client = new Client();
+                $response = $client->request(
+                    $method,
+                    $this->uri($model),
+                    [
+                        'headers' => $this->headers(),
+                        'body' => $body,
+                    ]
+                );
+                return $this->response($response);
+            } catch (RequestException $e) {
+                $this->error($e);
+            }
+        } else if ($method == "PUT")
         {
             try {
                 $client = new Client();
@@ -211,9 +227,10 @@ class CWManageAPI
 
     }
 
-    public static function put($model)
+    public static function put($model, $options = [])
     {
-
+        $request = new CWManageAPI();
+        return $request->request('PUT', $model, json_encode($options));
     }
 
     public static function patch($model)
