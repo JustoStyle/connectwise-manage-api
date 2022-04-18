@@ -97,24 +97,45 @@ class CWManageAPI
             'clientId' => $this->clientId(),
             'Authorization' => $this->auth(),
             'Accept' => 'application/vnd.connectwise.com+json; version=' . $this->version(),
+            'Content-Type' => 'application/json',
         ];
     }
 
-    public function request($method, $model)
+    public function request($method, $model, $body = null)
     {
-        try {
-            $client = new Client();
-            $response = $client->request(
-                $method,
-                $this->uri($model),
-                [
-                    'headers' => $this->headers(),
-                ]
-            );
-            return $this->response($response);
-        } catch (RequestException $e) {
-            $this->error($e);
+        if ($method == "GET")
+        {
+            try {
+                $client = new Client();
+                $response = $client->request(
+                    $method,
+                    $this->uri($model),
+                    [
+                        'headers' => $this->headers(),
+                    ]
+                );
+                return $this->response($response);
+            } catch (RequestException $e) {
+                $this->error($e);
+            }
+        } else if ($method = "POST")
+        {
+            try {
+                $client = new Client();
+                $response = $client->request(
+                    $method,
+                    $this->uri($model),
+                    [
+                        'headers' => $this->headers(),
+                        'body' => $body,
+                    ]
+                );
+                return $this->response($response);
+            } catch (RequestException $e) {
+                $this->error($e);
+            }
         }
+
     }
 
     public static function count($model)
@@ -183,8 +204,10 @@ class CWManageAPI
         return $data;
     }
 
-    public static function post($model)
+    public static function post($model, $options = [])
     {
+        $request = new CWManageAPI();
+        return $request->request('POST', $model, json_encode($options));
 
     }
 
